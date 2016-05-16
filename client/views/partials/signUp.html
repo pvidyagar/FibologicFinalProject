@@ -1,0 +1,98 @@
+
+<div class="modal-header">
+	<h4 class="modal-title">
+		SignUp
+		</h3>
+</div>
+<div class="modal-body">
+	<tr></tr>
+	<div></div>
+	<div class="ui middle aligned very relaxed stackable grid">
+		<div class="column">
+			<form name="loginForm" novalidate>
+				<div class="ui form">
+					<div class="field">
+						<label>Full Name</label>
+						<div class="ui left icon input">
+							<input type="text" name="fullname" placeholder="Name"
+								ng-model="user.fullname" ng-pattern="/^[a-zA-Z\s]*$/"
+								ng-minlength="2" ng-maxlength="20" ng-required="true"> <i
+								class="user icon"></i>
+						</div>
+
+						<span style="color: red" ng-show="loginForm.fullname.$dirty">
+							<span ng-show="loginForm.fullname.$error.required">Name is
+								required.</span>
+						</span> <span style="color: red" ng-show="loginForm.fullname.$dirty">
+							<span ng-show="loginForm.fullname.$error.pattern">Name
+								should contain only alphabets.</span> <span
+							ng-show="((loginForm.fullname.$error.minlength || loginForm.fullname.$error.maxlength))">
+								Length should be 2-20 character. </span>
+						</span>
+
+					</div>
+					<div class="field"
+						ng-class="{'has-error': loginForm.mobilenumber.$error.number}">
+						<label>Mobile Number</label>
+						<div class="ui left icon input">
+							<input type="text" name="mobilenumber"
+								placeholder="Mobile Number" ng-model="user.mobilenumber"
+								ng-minlength="10" ng-maxlength="10" ng-required="true"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+							<i class="mobile icon"></i>
+						</div>
+						<span style="color: red" ng-show="loginForm.mobilenumber.$dirty">
+							<span ng-show="loginForm.mobilenumber.$error.required">mobile
+								Number is required.</span> <span class="help-block"
+							ng-show="loginForm.mobilenumber.$error.required && loginForm.mobilenumber.$error.number">Valid
+								phone number is required</span> <span style="color: red"
+							class="help-block"
+							ng-show="((loginForm.mobilenumber.$error.minlength || loginForm.mobilenumber.$error.maxlength) && loginForm.mobilenumber.$dirty) ">
+								phone number should be 10 digits </span>
+						</span>
+					</div>
+					<div class="field">
+						<label>Email ID</label>
+						<div class="ui left icon input">
+							<input type="email" name="email" placeholder="Email ID"
+								ng-model="user.email"
+								ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required> <i
+								class="mail icon"></i>
+						</div>
+						<span style="color: red" ng-show="loginForm.email.$dirty">
+							<span ng-show="loginForm.email.$error.required">Email is
+								required.</span>
+						</span> <span style="color: red" ng-show="loginForm.fullname.$dirty">
+							<span ng-show="loginForm.email.$error.pattern">Invalid
+								email pattern. </span>
+						</span>
+
+					</div>
+					<div class="field">
+						<label>Password</label>
+						<div class="ui left icon input">
+							<input type="password" name="password" ng-maxlength="6" ng-minlength="6"
+								placeholder="Password" ng-model="user.password" required>
+							<i class="privacy icon"></i>
+						</div>
+						<span style="color: red" ng-show="loginForm.password.$dirty"> 
+						<span ng-show="loginForm.password.$error.required">pass is required.</span>
+							<span style="color: red" ng-show=loginForm.password.$error.minlength>Password
+								length should be 6 character</span>
+						</span>
+					</div>
+					<button class="ui primary button SingInSignUpButton"
+						ng-disabled="loginForm.email.$invalid || loginForm.email.$error.required  ||
+									 loginForm.password.$invalid ||  
+									 loginForm.mobilenumber.$invalid ||
+									 (loginForm.mobilenumber.$error.minlength || loginForm.mobilenumber.$error.maxlength) ||
+									 loginForm.fullname.$invalid || 
+									 loginForm.fullname.$error.pattern||
+									 (loginForm.fullname.$error.minlength || loginForm.fullname.$error.maxlength)"
+						ng-click="signup();")>Submit</button>
+
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

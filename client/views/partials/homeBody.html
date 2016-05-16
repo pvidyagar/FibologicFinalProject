@@ -1,0 +1,468 @@
+
+<!-- ============= Modal structure ============== -->
+
+<!-- Scripts for carousel -->
+<script type="text/javascript" >
+	var src="/assets/js/carousel.js"
+	$.getScript(src);
+	
+	$('.ui.rating').rating({
+		initialRating: 4,
+		maxRating: 5}).rating('disable');
+	
+
+	/* script for sticky-Waypoints */
+	var sticky = new Waypoint.Sticky({
+		  element: $('.stickyWaypoints')[0]
+		});
+		
+</script>
+
+
+
+<div class="jR3DCarouselGallery"></div>
+
+
+<!-- ============ Begin page content ================ -->
+
+<div class="divider" id="dropdowns"></div>
+
+
+<div class="bg-4" >
+	<div class="container ">
+		<!-- <div class="row" style="left-margin: 10px;">
+
+
+			<div class="col-md-4 col-sm-4 col-xs-4 ">
+
+				<li>
+					<div class="btn-group">
+						<a
+							class="btn btn-danger dropdown-toggle btn-select2 filterCaption"
+							data-toggle="dropdown" href=""> <span
+							class="glyphicon glyphicon-calendar"></span> Select Date <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"> <font color="black">{{today |
+										date:'dd-MM-yyyy'}} </font></a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#"> <font color="black"> {{tomorrow
+										| date:'dd-MM-yyyy'}}</font></a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#"> <font color="black">{{dat |
+										date:'dd-MM-yyyy'}}</font></a></li>
+						</ul>
+					</div>
+				</li>
+			</div>
+
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<li>
+					<div class="btn-group">
+						<a
+							class="btn btn-danger dropdown-toggle btn-select2 filterCaption"
+							data-toggle="dropdown" href=""> <span
+							class="glyphicon glyphicon-cutlery"></span> Food Type <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#" ng-click="searchAll()"> All </a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#" ng-click="search('Soup')"> Beverages </a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#" ng-click="search('Salad')"> Salads</a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#" ng-click="search('Breakfast')">
+									Breakfast</a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#" ng-click="search('Desert')"> Desert </a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#" ng-click="search('Main Course')"> Main
+									Course </a></li>
+						</ul>
+					</div>
+				</li>
+			</div>
+
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<li>
+					<div class="btn-group">
+						<a
+							class="btn btn-danger dropdown-toggle btn-select2 filterCaption"
+							data-toggle="dropdown" href=""> <span
+							class="glyphicon glyphicon-leaf"></span> Veg/Non-Veg <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">All </a></li>
+							<li><a href="#">Veg </a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#"> Non-Veg </a></li>
+						</ul>
+					</div>
+				</li>
+			</div>
+		</div> -->
+		<!-- <div class=" centered">
+			<label for="Autocomplete">Set Locality</label> <input type="text"
+				id="Autocomplete" ng-autocomplete="result"
+				placeholder="Enter Locality" ng-model="allFilters.selectedAddress"
+				value="result" details="details" options="options" />
+		</div> -->
+	<!-- <div class="container col-md-12">
+		<div class="ui loading search" style ="width:100%">
+			<div class="ui icon input">
+				<input class="prompt" type="text" placeholder="Search..."> <i
+					class="search icon"></i>
+			</div>
+			<div class="results"></div>
+		</div>
+	</div> -->
+	<!--/.container -->
+</div>
+<!--/.bg-4 -->
+
+
+<!--================= Menu List ================ -->
+
+<script type="text/javascript">
+
+function specialCharacterValidation(event) {
+	return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) 
+	|| (event.charCode >= 97 && event.charCode <= 122) || event.charCode == 32 || event.charCode == 45
+	|| event.charCode == 95;
+}
+
+$('.ui.accordion').accordion();
+
+$('.special.card .image').dimmer({
+	  on: 'hover'
+	});
+
+</script>
+
+<div class="divider " id="menu"></div>
+<div class="divider "></div>
+<div class="divider "></div>
+<!-- <div class="container col-md-12">
+	<div class="col-md-3 "></div>
+	<div class="col-md-9 ">
+		<div class="ui loading search">
+			<div class="ui icon input">
+				<input class="prompt" type="text" placeholder="Search..."> <i
+					class="search icon"></i>
+			</div>
+			<div class="results"></div>
+		</div>
+	</div>
+</div> -->
+	<div class="divider "></div>
+	<div class="divider "></div>
+	<div class="container col-md-12">
+
+		<div class="row" style="background-color: white" >
+			<div class=" stickyWaypoints cardAlignMobileView" >
+
+				<div class="ui fluid card myCardSize" >
+					<div class="content">
+
+						<div class="ui left icon input lowercase searchBox" style="width: 100%">
+							<input type="text" placeholder="Menu or Chef Name"  
+							onkeypress="return specialCharacterValidation(event);"
+								ng-model="allFilters.selectedSearchData" ng-change="formatAllfilters()">
+							<i class="search icon"></i>
+						</div>
+
+						<h4 class="ui horizontal divider"
+							style="text-transform: capitalize">
+							<i class="sort icon"></i> Sort
+						</h4>
+
+						<div class="ui vertical accordion menu sortBox" style="width: 100%">
+							<div class="item ">
+								<a class="title filterName"> <i class="rupee icon"></i>
+									Price <i class="dropdown icon"></i>
+								</a>
+								<div class="content">
+								    <div class="ui form">
+								        <div class="grouped fields">
+								            <div class="field">
+								            	<input type="radio" ng-click="formatAllfilters()" ng-model="allFilters.selectedPriceSort" value="desc" />
+								                <a class="filterName">
+													High to Low <i class="sort content descending icon"></i>
+								                </a>
+								            </div>
+								            <div class="divider"></div>
+								            <div class="field">
+								            	<input type="radio" ng-click="formatAllfilters()" ng-model="allFilters.selectedPriceSort" value="asc" />
+								                <a class="filterName">
+								                	Low to High <i class="sort content ascending icon"></i>
+								                </a>
+								            </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+							<div class="item">
+								<a class="title filterName"> <i class="heart icon"></i>
+									Rating <i class="dropdown icon"></i>
+								</a>
+							</div>
+						</div>
+
+						<h4 class="ui horizontal divider"
+							style="text-transform: capitalize">
+							<i class="filter icon"></i> Filter
+						</h4>
+
+						<div class="ui vertical accordion menu filterBox" style="width: 100%">
+							<div class="item" ng-click="foodType()">
+								<a class="title filterName"> <i class="food icon"></i> Food
+									Type <i class="dropdown icon"></i>
+								</a>
+								<div class="content">
+									<div class="ui form">
+										<div class="grouped fields">
+											<div class="field" ng-repeat="foodTypeName in foodTypeNames">
+												<div class="checkbox">
+													<input type="checkbox" name="small"
+														ng-click="formatAllfilters()"
+														checklist-model="allFilters.selectedFoodType"
+														checklist-value="foodTypeName"> <label class="filterName">
+														{{foodTypeName}} </label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item" ng-click="cuisineType()">
+								<a class="title filterName"><i class="crosshairs icon"></i>Cuisines 
+									<i class="dropdown icon"></i>
+								</a>
+								<div class="content">
+									<div class="ui form">
+										<div class="grouped fields">
+											<div class="field" ng-repeat="cuisineName in cuiseneNames">
+												<div class="checkbox"> <input type="checkbox"
+													ng-click="formatAllfilters()"
+													checklist-model="allFilters.selectedCuisine"
+													checklist-value="cuisineName"> <label class="filterName">
+														{{cuisineName}}</label>
+
+											</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<a class="title filterName"><i class="dropdown icon"></i><i
+									class="leaf icon"></i> Veg/Non-Veg </a>
+								<div class="content">
+									<div class="ui form">
+										<div class="grouped fields ">
+											<div class="field" ng-repeat="foodPref in foodPreferences">
+												<div class="checkbox"> <input type="checkbox" name="small"
+													ng-click="formatAllfilters()"
+													checklist-model="allFilters.selectedFoodPref"
+													checklist-value="foodPref"> <label class="filterName">
+														{{foodPref}} </label>
+
+											</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+
+						<h4 class="ui horizontal divider"
+							style="text-transform: capitalize">
+							<i class="rupee icon"></i> Price Range
+						</h4>
+
+						<div range-slider min="price.minRange" max="price.maxRange"
+							model-min="price.min" model-max="price.max" step="5"
+							attach-handle-values="true" on-handle-up="sliderStops()"
+							on-handle-down="sliderStarts()" prevent-equal-min-max="true"
+							style="margin-bottom: 0px"></div>
+
+						<div class="ui small pointing  black basic label">
+							Min = &nbsp;<i class="rupee icon"></i>{{allFilters.sliderMinPrice}}
+						</div>
+
+						<div class="ui right floated small pointing black basic label">
+							Max =&nbsp;<i class="rupee icon"></i>{{allFilters.sliderMaxPrice}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="fade" class="black_overlay"></div>
+
+			<div class="col-md-9" style="float: right">
+
+				<div class="ui segment">
+					<div class="ui form">
+						<div class="ui fluid small left action icon input ">
+							<div class="ui button">Address</div>
+							<input type="text" placeholder="Enter your locality..."
+								id="selectedUserAddress" ng-autocomplete="result" details="details" options="options"
+								ng-model="allFilters.selectedUserAddress"  
+								 /> <i
+								class="location arrow icon"></i>
+						</div>
+					</div>
+				</div>
+				
+				<div ng-show="notFound" style="text-align: center;">
+					<br> <br> <br> <br> <span class="sortErrorHead">
+						Ooops! </span><br> <br> <span class="sortErrorBody">
+						Something went wrong... </span><br> <br> <a href=""
+						ng-click="reloadBody()"> Click here to Show menu. </a> <br> <br>
+				</div>
+				
+			
+				    
+				<div class="col-md-4 col-sm-6 col-xs-6 menuCardSizing" ng-show="elasticData" ng-repeat="menuItem in menuItems">
+				    <div class="ui card">
+				        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+				            <div class="carousel-inner" role="listbox">
+				                <div class="item active" style="height:160px">
+				                    <div class="hoverArea">
+				                        <img ng-src="{{menuItem.item.imageUrls[0]}}" style="height: 160px">
+				                        <ng-include src="'/partials/menuHoverUserCard.html'"></ng-include>
+
+				                    </div>
+				                </div>
+				                <div class="item" ng-repeat="imageSlide in menuItem.item.imageUrls" ng-if="$index > 0" style="height:160px">
+				                    <div class="hoverArea">
+				                        <img ng-src="{{imageSlide}}" style="height: 160px">
+				                        <ng-include src="'/partials/menuHoverUserCard.html'"></ng-include>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+				        <div class="content">
+				            <div class="description ">
+
+				                <div style="font-weight: bold;">
+				                    <div class="left floated recipeNameBox">
+								        <span text-overflow-hover class="recipeNameTitle">{{menuItem.item.name[0]}}</span>
+								    </div>
+				                    <div class="right floated " style="color:#000;font-size:1rem;font-weight: 400">
+										<i style="color:#d43f3a" class="rupee icon recipePrice"></i>{{menuItem.item.price[0]}}
+									</div>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				
+			</div>
+			<!--Row-->
+		</div>
+		<!--/container-->
+
+		
+		
+		
+		<!-- Recipe Details Modal -->
+		<ng-include src="'/partials/menuHoverDetailsModal.html'"></ng-include>
+
+		<!--================= Contact us Form ================ -->
+		<div class="divider" id="contact"></div>
+
+		<div class="row" ng-show="showContact">
+			<div class="well well-sm">
+				<form class="form-horizontal" method="post">
+					<fieldset>
+						<legend class="text-center header">Contact us</legend>
+						<div class="form-group">
+							<span class="col-md-1 col-md-offset-2 text-center"><i
+								class="fa fa-user bigicon"></i></span>
+							<div class="col-md-8">
+								<input id="fname" name="name" type="text"
+									placeholder="First Name" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<span class="col-md-1 col-md-offset-2 text-center"><i
+								class="fa fa-user bigicon"></i></span>
+							<div class="col-md-8">
+								<input id="lname" name="name" type="text"
+									placeholder="Last Name" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<span class="col-md-1 col-md-offset-2 text-center"><i
+								class="fa fa-envelope-o bigicon"></i></span>
+							<div class="col-md-8">
+								<input id="email" name="email" type="text"
+									placeholder="Email Address" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<span class="col-md-1 col-md-offset-2 text-center"><i
+								class="fa fa-phone-square bigicon"></i></span>
+							<div class="col-md-8">
+								<input id="phone" name="phone" type="text" placeholder="Phone"
+									class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<span class="col-md-1 col-md-offset-2 text-center"><i
+								class="fa fa-pencil-square-o bigicon"></i></span>
+							<div class="col-md-8">
+								<textarea class="form-control" id="message" name="message"
+									placeholder="Enter your massage for us here. We will get back to you within 2 business days."
+									rows="7"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12 text-center">
+								<button type="submit" class="btn btn-danger btn-lg">Submit</button>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+
+
+
+		<!--================= footer ================ -->
+		<div class="footer_b" id="footer1">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="footer_bottom">
+						<p class="text-block">
+							&copy; Copyright reserved to <span>Home Delights </span>
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="footer_mid pull-right">
+						<ul class="social-contact list-inline">
+							<li><a href="http://facebook.com/bootply"><img
+									src="/assets/img/soc_fb.png" height="30"></a></li>
+							<li><a href="http://twitter.com/bootply"><img
+									src="/assets/img/soc_tw.png" height="30"></a></li>
+							<li><a href="http://google.com/+bootply"><img
+									src="/assets/img/soc_gplus.png" height="30"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<br> <br>
+		</div>
+		<!--================= go Up code ================ -->
+		<ul class="nav pull-right scroll-top scrollToTop">
+			<li><a href="#" title="Scroll to top" class="myAncher"><i
+					class="glyphicon glyphicon-chevron-up"></i></a></li>
+
+		</ul>

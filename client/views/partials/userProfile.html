@@ -1,0 +1,60 @@
+<div style="padding-top: 50px">
+    <div class="ui raised very padded text container segment">
+        <h2 class="ui centered dividing header">Profile</h2>
+        <form class="ui form">
+            <img class="ui fluid centered medium rounded image" src={{user.photo}}>
+            <br>
+            <br>
+            <div class="two fields">
+                <div class="field">
+                    <label>
+                        <font size=3>User Name:</font>
+                    </label>
+                    <input type="text" value={{user.name}} placeholder="User Name" ng-model="user.name" />
+                </div>
+                <div class="field">
+                    <label>
+                        <font size=3>Password:</font>
+                    </label>
+                    <input type="text" placeholder="Password" />
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>
+                        <font size=3>Gender:</font>
+                    </label>
+                    <input type="text" value={{user.gender}} placeholder="Gender" ng-model="user.gender" />
+                </div>
+                <div class="field">
+                    <label>
+                        <font size=3>DOB:</font>
+                    </label>
+                    <input type="text" placeholder="DOB" />
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>
+                        <font size=3>Email ID:</font>
+                    </label>
+                    <input type="text" value={{user.email}} placeholder="Email ID" ng-model="user.email" />
+                </div>
+                <div class="field">
+                    <label>
+                        <font size=3>Mobile No:</font>
+                    </label>
+                    <input type="text" value={{user.mobileno}} placeholder="Mobile No" ng-model="user.mobileno" />
+                </div>
+            </div>
+            <div class="field">
+                <label>
+                    <font size=3>Address:</font>
+                </label>
+                <textarea rows="2" value={{user.address}} placeholder="Address" ng-model="user.address"></textarea>
+            </div>
+            <input type="text" value={{user.id}} ng-model="user.id" style="display: none;"/>
+            <button class="ui red button" type="submit" ng-click="updateUserInfo(user)">Submit</button>
+        </form>
+    </div>
+</div>

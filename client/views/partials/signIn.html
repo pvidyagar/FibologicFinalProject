@@ -1,0 +1,69 @@
+<div class="modal-header">
+	<h4 class="modal-title">
+		Login / SignUp
+		</h3>
+</div>
+
+<div class="modal-body">
+
+
+	<div></div>
+	<div class="ui two column middle aligned very relaxed stackable grid">
+		<div class="column">
+			<form name="loginForm" novalidate>
+				<div class="ui form">
+					<div class="field">
+
+						<label> If you are a new User <a  href="" 
+						ng-click="showSignUp('sm')">Sign up</a></label>
+
+
+					</div>
+					<div class="field">
+						<label>Email ID</label>
+						<div class="ui left icon input">
+							<input type="text" name="email" ng-value="user.email" 
+								placeholder="Email ID" ng-model="user.email" required> <i
+								class="mail icon"></i>
+						</div>
+						<span style="color: red" ng-show="loginForm.email.$dirty">
+							<span ng-show="loginForm.email.$error.required">Email is
+								required.</span>
+						</span>
+					</div>
+					<div class="field">
+						<label>Password</label>
+						<div class="ui left icon input">
+							<input type="password" name="pass" placeholder="Password" ng-minlength="6" ng-maxlength="6" 
+								ng-model="user.password" ng-value="user.password" required> <i class="privacy icon"></i>
+						</div>
+						<span style="color: red" ng-show="loginForm.pass.$dirty"> <span
+							ng-show="loginForm.pass.$error.required">pass is required.</span>
+							<span style="color: red" ng-show=loginForm.pass.$error.minlength >Password length should be 6 characters</span>
+						</span>
+						<span style="color : red"> {{err}} </span>
+					</div>
+					<button class="ui primary button SingInSignUpButton"
+						ng-disabled="loginForm.email.$invalid || loginForm.pass.$invalid ||loginForm.email.length==0||loginForm.pass.length==0" ng-click="login(user)">
+						Submit</button>
+
+				</div>
+			</form>
+		</div>
+		<div class="ui vertical divider">Or</div>
+		<div class="center aligned column">
+			<div ui vertical labeled icon buttons>
+				<a href="/auth/facebook" style="color: white">
+					<button class="ui facebook button">
+						<i class="facebook icon"></i> Facebook
+					</button>
+				</a> <a href="/auth/google" style="color: white">
+					<button class="ui google plus button">
+						<i class="google plus icon"></i> Google Plus
+					</button>
+				</a>
+			</div>
+		</div>
+	</div>
+
+</div>

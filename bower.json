@@ -1,0 +1,30 @@
+{
+  "name": "Home Delights",
+  "description": "Home made food",
+  "main": "server.js",
+  "authors": [
+    "Vineet Jhaveri"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-rangeslider": "^0.0.14",
+    "jquery": "^2.2.2",
+    "angular": "^1.5.3",
+    "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6",
+    "semantic": "^2.1.8",
+    "underscore": "^1.8.3"
+  }
+}
