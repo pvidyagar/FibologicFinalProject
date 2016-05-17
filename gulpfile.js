@@ -56,22 +56,18 @@ gulp.task('browser-sync', ['nodemon'], function () {
 });
 
 gulp.task('js',  function () {
-  return gulp.src('client/**/*.js')
-    // do stuff to JavaScript files
-    //.pipe(uglify())
-    //.pipe(gulp.dest('...'));
+   return gulp.src('client/views/js/*.js');
 });
 
 gulp.task('css', function () {
-  return gulp.src('client/**/*.css')
-    .pipe(browserSync.reload({ stream: true }));
+   gulp.src('client/views/css/*.css')
+   .pipe(browserSync.reload({ stream: true }));
 });
 
 
-gulp.task('html', function () {
-  return gulp.src('client/**/*.html')
-    .pipe(browserSync.reload({ stream: true }));
-});
+/*gulp.task('html', function () {
+   gulp.src('client/views/*.html');
+});*/
 
 gulp.task('bs-reload', function () {
   browserSync.reload();
@@ -80,5 +76,5 @@ gulp.task('bs-reload', function () {
 gulp.task('default', ['browser-sync'], function () {
   gulp.watch('client/**/*.js',   ['js', browserSync.reload]);
   gulp.watch('client/**/*.css',  ['css']);
-  gulp.watch('client/**/*.html', ['html','bs-reload']);
+  gulp.watch('client/**/*.html', ['bs-reload']);
 });
